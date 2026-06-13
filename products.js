@@ -4,8 +4,8 @@
 
 const GLOBAL_CONFIG = {
     googleFormUrl: "https://forms.gle/jt9SppatJXQ7JXwq6",
-    whatsappNumber: "919607910411",
-    hotlineDisplay: "+91 9607910411",
+    whatsappNumber: "919511236653",
+    hotlineDisplay: "+91 9511236653/+91 9607910411",
     copyrightYear: "2026"
 };
 
@@ -47,6 +47,7 @@ const PRODUCT_CATEGORIES = [
     {
         id: "pin-badges-panel",
         key: "pin44",
+        menuName: "Pin Badges",
         title: "Premium Matte & Glossy Pin Badges",
         tagline: "Small badge, Big impression!",
         description: "Engineered with absolute safety backing systems. Perfect layout for school functions, brand recognition identity layers, statement clothing pins, and wedding guest keepsakes.",
@@ -70,6 +71,7 @@ const PRODUCT_CATEGORIES = [
     {
         id: "fridge-magnets-panel",
         key: "fridge58",
+        menuName: "Magnet Badges",
         title: "Custom Classic & Acrylic Fridge Magnets",
         tagline: "Brighten your fridge, cherish your memories!",
         description: "Features heavy-grade scratch-free backings. Display vibrant family photography landscapes or memorable save-the-date invitations cleanly over kitchen appliances.",
@@ -82,14 +84,13 @@ const PRODUCT_CATEGORIES = [
             "products/magnet/magnet1.jpg",
             "products/magnet/magnet2.jpg",
             "products/magnet/magnet3.jpg",
-            "products/magnet/magnet4.jpg",
-            "products/magnet/magnet5.jpg",
-            "products/magnet/magnet6.jpg"
+            "products/magnet/magnet4.jpg"
         ]
     },
     {
         id: "keychains-panel",
         key: "key44",
+        menuName: "Keychains",
         title: "Custom Keychains & Integrated Bottle Openers",
         tagline: "Carry your memories, wherever you go!",
         description: "Reinforced double-sided protective acrylic rings combined with real heavy-duty steel links. Excellent giveaways for bike groups, company asset keys, and bar merchandise.",
@@ -110,6 +111,7 @@ const PRODUCT_CATEGORIES = [
     {
         id: "tshirt-magnets-panel",
         key: "tshirt58",
+        menuName: "T-Shirt Badges",
         title: "Premium High-Strength T-Shirt Magnets",
         tagline: "Wear your attitude, share your message!",
         description: "No puncture pins required. Attaches to shirts via extra-strong magnetic locks that keep fabrics safe and secure. Perfect for corporate trade shows and formal events.",
@@ -121,10 +123,7 @@ const PRODUCT_CATEGORIES = [
         images: [
             "products/tshirt/tshirt1.jpg",
             "products/tshirt/tshirt2.jpg",
-            "products/tshirt/tshirt3.jpg",
-            "products/tshirt/tshirt4.jpg",
-            "products/tshirt/tshirt5.jpg",
-            "products/tshirt/tshirt6.jpg"
+            "products/tshirt/tshirt3.jpg"
         ]
     }
 ];

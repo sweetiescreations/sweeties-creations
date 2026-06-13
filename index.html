@@ -223,8 +223,7 @@
             PRODUCT_CATEGORIES.forEach((cat, idx) => {
                 const activeTab = idx === 0 ? 'bg-rose-600 text-white shadow-sm font-bold' : 'bg-slate-200 text-slate-700 hover:bg-slate-300 font-medium';
                 const activeContent = idx === 0 ? 'active' : '';
-                const truncatedTabName = cat.title.replace('Premium ', '').replace('Custom ', '').split(' & ')[0];
-                
+                const truncatedTabName = cat.menuName || cat.title.replace('Premium ', '').replace('Custom ', '').split(' & ')[0];
                 tabsHtml += `<button onclick="switchTab('${cat.id}')" class="tab-btn px-4 py-2 rounded-lg text-xs uppercase tracking-wide transition-all ${activeTab}">${truncatedTabName}</button>`;
                 
                 let thumbHtml = '';
