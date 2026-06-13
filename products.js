@@ -56,12 +56,15 @@ const PRODUCT_CATEGORIES = [
             "Wholesale Advantage: Drops to ₹12 for high wholesale tiers."
         ],
         images: [
-            "products/badges/badge1.jpg",
-            "products/badges/badge2.jpg",
-            "products/badges/badge3.jpg",
-            "products/badges/badge4.jpg",
-            "products/badges/badge5.jpg",
-            "products/badges/badge6.jpg"
+            "products/badges/badge1.jpeg",
+            "products/badges/badge2.jpeg",
+            "products/badges/badge3.jpeg",
+            "products/badges/badge4.jpeg",
+            "products/badges/badge5.jpeg",
+            "products/badges/badge6.jpeg",
+            "products/badges/badge7.jpeg",
+            "products/badges/badge8.jpeg",
+            "products/badges/badge9.jpeg"
         ]
     },
     {
