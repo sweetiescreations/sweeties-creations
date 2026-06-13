@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweeties Creations | Premium Custom Gifting & Wholesale Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Public Sans', sans-serif; scroll-behavior: smooth; }
+        .carousel-slide { display: none; transition: opacity 0.6s ease-in-out; }
+        .carousel-slide.active { display: block; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="bg-slate-50/50 text-slate-800 antialiased">
+
+    <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 font-medium">
+        <div class="container mx-auto flex justify-between items-center">
+            <span><i class="fas fa-check-circle text-amber-400 mr-1.5"></i> Bulk Wholesale Pricing Automatically Applied Below</span>
+            <span class="hidden md:inline-block">Hotline Support: <strong id="strip-phone">+91 9607910411</strong></span>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <img src="logo.jpeg" alt="Sweeties Creations Logo" class="h-12 w-12 rounded-full object-cover border border-rose-200 shadow-sm" onerror="this.src='https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=150'">
+                <div>
+                    <span class="text-xl font-extrabold text-slate-900 tracking-tight block group-hover:text-rose-600 transition-colors">Sweeties</span>
+                    <span class="text-[10px] uppercase font-bold text-rose-500 tracking-widest block -mt-1">Creations</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-8 font-semibold text-sm text-slate-600">
+                <a href="#categories-portal" class="hover:text-rose-600 transition-colors">Products & Showcase</a>
+                <a href="#calculator-section" class="hover:text-rose-600 transition-colors">Bulk Price Calculator</a>
+                <a href="#rate-card-table" class="hover:text-rose-600 transition-colors">Wholesale Rate Card</a>
+            </nav>
+            <div class="flex items-center space-x-2.5">
+                <a id="nav-wa-btn" href="#" target="_blank" class="bg-[#25D366] hover:bg-[#20ba56] text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold flex items-center shadow-sm transition-all">
+                    <i class="fab fa-whatsapp mr-1.5 text-base"></i> Chat Wholesale
+                </a>
+                <a id="nav-form-btn" href="#" target="_blank" class="bg-[#ff9f00] hover:bg-[#f39800] text-white px-4 py-2 rounded-lg text-xs md:text-sm font-bold shadow-sm transition-all tracking-wide">
+                    <i class="fas fa-shopping-cart mr-1.5"></i> Order Form
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero-carousel-container" class="relative bg-slate-900 h-[380px] md:h-[500px] overflow-hidden">
+        </section>
+
+    <section id="calculator-section" class="bg-white py-12 border-b border-slate-200">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl text-white"><i class="fas fa-calculator"></i></div>
+                <div class="mb-6">
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest block mb-1">Interactive Pricing Engine</span>
+                    <h3 class="text-2xl font-bold tracking-tight">Estimate Your Real-Time Bulk Savings</h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4 text-slate-900">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Choose Product Category</label>
+                            <select id="calc-product" onchange="calculatePrice()" class="w-full bg-white border border-slate-300 text-sm rounded-lg px-3 py-2.5 font-medium focus:outline-none">
+                                </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">Enter Order Quantity</label>
+                            <input id="calc-qty" type="number" value="100" min="1" oninput="calculatePrice()" class="w-full bg-white border border-slate-300 text-sm rounded-lg px-3 py-2.5 font-bold focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/60 border border-slate-700/60 p-6 rounded-xl flex flex-col justify-between h-full text-center md:text-left">
+                        <div class="grid grid-cols-2 gap-4 border-b border-slate-800 pb-4">
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Price Per Unit</span>
+                                <span id="out-per-unit" class="text-2xl font-black text-amber-400">₹0</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Active Quantity Tier</span>
+                                <span id="out-tier" class="text-xs inline-block mt-1.5 font-bold bg-rose-600 text-white px-2 py-0.5 rounded">-</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Estimated Total Cost</span>
+                                <span id="out-total" class="text-3xl font-black text-white">₹0</span>
+                            </div>
+                            <a id="calc-cta-form" href="#" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs uppercase tracking-wide transition-all flex items-center">
+                                Lock-In This Rate <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="categories-portal" class="container mx-auto px-4 py-16 max-w-6xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Shop by Custom Category</h2>
+            <p class="text-slate-500 text-sm mt-1">Explore real design variations. Click any smaller thumbnail box to swap pictures instantly.</p>
+        </div>
+
+        <div id="tabs-navigation-bar" class="flex flex-wrap justify-center gap-2 mb-10 border-b border-slate-200 pb-4">
+            </div>
+
+        <div id="dynamic-category-cards-target">
+            </div>
+    </main>
+
+    <section id="rate-card-table" class="bg-slate-100 py-16 border-t border-slate-200">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10">
+                <span class="text-rose-600 text-xs font-bold uppercase tracking-widest block mb-1">Official B2B Rate Sheet</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Transparent Volume Price Matrix</h2>
+            </div>
+            <div id="rate-table-target" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 py-12 text-xs md:text-sm">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 pb-8 border-b border-slate-900">
+            <div>
+                <h4 class="text-white font-bold text-base mb-3">Sweeties Creations</h4>
+                <p class="leading-relaxed max-w-xs text-slate-400 text-xs">Premium personalized merchandise production loop. Delivering absolute quality, clarity, and speed on bulk demands nationwide.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-3">Direct Actions Channel</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a class="footer-form-link hover:text-white transition-colors" href="#" target="_blank"><i class="fas fa-arrow-right text-rose-500 mr-1.5"></i>Launch Central Google Form</a></li>
+                    <li><a class="footer-wa-link hover:text-white transition-colors" href="#" target="_blank"><i class="fas fa-arrow-right text-rose-500 mr-1.5"></i>Wholesale Production Desk</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-3">Operational Meta</h4>
+                <p class="text-xs mb-1"><strong>Inquiries Direct Line:</strong> <span class="footer-phone-text"></span></p>
+                <p class="text-xs"><strong>Fulfillment Base:</strong> Built and Dispatched with Love 💖</p>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 pt-6 text-center text-[11px] text-slate-600">
+            &copy; <span id="footer-year-display"></span> Sweeties Creations. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+
+    <script>
+        let currentSlide = 0;
+
+        function initApp() {
+            // Setup global strings
+            const waBaseUrl = `https://wa.me/${GLOBAL_CONFIG.whatsappNumber}`;
+            document.getElementById('strip-phone').innerText = GLOBAL_CONFIG.hotlineDisplay;
+            document.querySelectorAll('.footer-phone-text').forEach(el => el.innerText = GLOBAL_CONFIG.hotlineDisplay);
+            document.getElementById('footer-year-display').innerText = GLOBAL_CONFIG.copyrightYear;
+            
+            document.getElementById('nav-wa-btn').href = waBaseUrl;
+            document.querySelectorAll('.footer-wa-link').forEach(el => el.href = waBaseUrl);
+            document.getElementById('nav-form-btn').href = GLOBAL_CONFIG.googleFormUrl;
+            document.getElementById('calc-cta-form').href = GLOBAL_CONFIG.googleFormUrl;
+            document.querySelectorAll('.footer-form-link').forEach(el => el.href = GLOBAL_CONFIG.googleFormUrl);
+
+            renderCarousel(waBaseUrl);
+            renderTabsAndPortals();
+            buildCalculatorOptions();
+            buildRateTable();
+            
+            calculatePrice();
+            setInterval(() => { changeSlide(1); }, 6000);
+        }
+
+        function renderCarousel(waUrl) {
+            const container = document.getElementById('hero-carousel-container');
+            let html = '';
+            CAROUSEL_SLIDES.forEach((slide, idx) => {
+                const activeClass = idx === 0 ? 'active' : '';
+                const destination = slide.ctaLink === 'whatsapp' ? waUrl : slide.ctaLink;
+                html += `
+                    <div class="carousel-slide ${activeClass} h-full relative">
+                        <img src="${slide.image}" class="w-full h-full object-cover opacity-25 absolute inset-0 mix-blend-multiply" alt="Slide">
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 text-white max-w-4xl mx-auto">
+                            <span class="bg-rose-500/90 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-4">${slide.tag}</span>
+                            <h1 class="text-3xl md:text-6xl font-black mb-4 tracking-tight leading-tight">${slide.title}</h1>
+                            <p class="text-sm md:text-lg opacity-80 max-w-xl font-light">${slide.description}</p>
+                            ${slide.showCtaButton ? `<a href="${destination}" class="mt-6 bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-all shadow">${slide.ctaText}</a>` : ''}
+                        </div>
+                    </div>`;
+            });
+            html += `
+                <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-20"><i class="fas fa-chevron-left text-sm"></i></button>
+                <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-20"><i class="fas fa-chevron-right text-sm"></i></button>`;
+            container.innerHTML = html;
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            if(!slides.length) return;
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function renderTabsAndPortals() {
+            const tabsBar = document.getElementById('tabs-navigation-bar');
+            const cardsTarget = document.getElementById('dynamic-category-cards-target');
+            let tabsHtml = '';
+            let cardsHtml = '';
+
+            PRODUCT_CATEGORIES.forEach((cat, idx) => {
+                const activeTabClass = idx === 0 ? 'bg-rose-600 text-white shadow-sm' : 'bg-slate-200 text-slate-700 hover:bg-slate-300';
+                const activeContentClass = idx === 0 ? 'active' : '';
+                
+                tabsHtml += `<button onclick="switchTab('${cat.id}')" class="tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider ${activeTabClass} transition-all">${cat.title.split(' & ')[0].split(' Custom ')[0]}</button>`;
+                
+                let thumbHtml = '';
+                cat.images.forEach((imgUrl, imgIdx) => {
+                    const borderClass = imgIdx === 0 ? 'border-rose-500 border-2' : 'border-slate-200 border';
+                    thumbHtml += `<img onclick="updateViewer('viewer-${cat.id}', this.src)" src="${imgUrl}" class="h-16 w-full object-cover rounded-md ${borderClass} cursor-pointer thumbnail-item">`;
+                });
+
+                let specsListHtml = '';
+                cat.specs.forEach(spec => specsListHtml += `<div><i class="fas fa-check-circle text-rose-500 mr-1.5"></i> ${spec}</div>`);
+
+                cardsHtml += `
+                    <div id="${cat.id}" class="tab-content ${activeContentClass} bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
+                        <div class="grid md:grid-cols-2 gap-10 items-center">
+                            <div>
+                                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-3 flex justify-center items-center h-80 relative">
+                                    <img id="viewer-${cat.id}" src="${cat.images[0]}" alt="Display Focus" class="max-h-full max-w-full object-contain rounded-lg">
+                                    <span class="absolute top-3 right-3 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-sm">As Low As ₹${cat.lowPrice}/pc</span>
+                                </div>
+                                <div class="grid grid-cols-6 gap-1.5">${thumbHtml}</div>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-slate-900 tracking-tight">${cat.title}</h3>
+                                <p class="text-rose-600 text-xs font-semibold uppercase tracking-wider">"${cat.tagline}"</p>
+                                <p class="text-slate-600 text-sm leading-relaxed">${cat.description}</p>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-xs space-y-1 text-slate-700">${specsListHtml}</div>
+                                <a href="${GLOBAL_CONFIG.googleFormUrl}" target="_blank" class="w-full bg-[#ff9f00] hover:bg-[#f39800] text-white text-center font-bold py-3 rounded-lg text-sm block transition-all shadow-sm">Customize & Buy This Category</a>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+
+            tabsBar.innerHTML = tabsHtml;
+            cardsTarget.innerHTML = cardsHtml;
+        }
+
+        function switchTab(targetId) {
+            document.querySelectorAll('.tab-content').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.className = "tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider bg-slate-200 text-slate-700 hover:bg-slate-300 transition-all";
+            });
+            document.getElementById(targetId).classList.add('active');
+            event.currentTarget.className = "tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider bg-rose-600 text-white shadow-sm transition-all";
+        }
+
+        function updateViewer(viewerId, newSrc) {
+            document.getElementById(viewerId).src = newSrc;
+            const container = event.target.parentElement;
+            container.querySelectorAll('.thumbnail-item').forEach(img => {
+                img.className = "h-16 w-full object-cover rounded-md border border-slate-200 cursor-pointer thumbnail-item";
+            });
+            event.target.className = "h-16 w-full object-cover rounded-md border-2 border-rose-500 cursor-pointer thumbnail-item";
+        }
+
+        function buildCalculatorOptions() {
+            const dropdown = document.getElementById('calc-product');
+            let html = '';
+            for (const key in PRICING_MATRIX) {
+                html += `<option value="${key}">${PRICING_MATRIX[key].name}</option>`;
+            }
+            dropdown.innerHTML = html;
+        }
+
+        function calculatePrice() {
+            const key = document.getElementById('calc-product').value;
+            const qty = parseInt(document.getElementById('calc-qty').value) || 0;
+            let idx = 0; let label = "1-50 units";
+            if(qty >= 51 && qty <= 100) { idx = 1; label = "51-100 units"; }
+            else if(qty >= 101 && qty <= 500) { idx = 2; label = "101-500 units"; }
+            else if(qty >= 501) { idx = 3; label = "501 & Above"; }
+            const unitPrice = PRICING_MATRIX[key].tiers[idx];
+            document.getElementById('out-per-unit').innerText = "₹" + unitPrice;
+            document.getElementById('out-tier').innerText = label;
+            document.getElementById('out-total').innerText = "₹" + (unitPrice * qty).toLocaleString('en-IN');
+        }
+
+        function buildRateTable() {
+            const target = document.getElementById('rate-table-target');
+            let headerCols = '<th class="p-4 border-b border-slate-800">Quantity Tier</th>';
+            for(const k in PRICING_MATRIX) {
+                headerCols += `<th class="p-4 border-b border-slate-800 text-center text-xs">${PRICING_MATRIX[k].name.replace(' (', '<br><span class="text-[10px] text-slate-400 font-normal">').replace(')', '</span>')}</th>`;
+            }
+            
+            const tiersLabels = [
+                { range: "1 - 50", style: "" },
+                { range: "51 - 100", style: "bg-amber-50/30 text-emerald-600" },
+                { range: "101 - 500", style: "text-emerald-600" },
+                { range: "501 & Above", style: "bg-rose-50/20 text-rose-700 font-black" }
+            ];
+
+            let bodyRows = '';
+            tiersLabels.forEach((tier, tIdx) => {
+                let rowHtml = `<td class="p-4 font-bold text-slate-900 bg-slate-50/50">${tier.range} <span class="text-[10px] font-normal text-slate-400 block">units</span></td>`;
+                for(const k in PRICING_MATRIX) {
+                    const weightClass = tIdx === 3 ? 'font-black text-rose-700' : (tIdx > 0 && k==='pin44' ? 'font-bold text-emerald-600' : '');
+                    rowHtml += `<td class="p-4 text-center ${weightClass}">₹${PRICING_MATRIX[k].tiers[tIdx]}</td>`;
+                }
+                bodyRows += `<tr class="hover:bg-slate-50 transition-colors ${tier.style}">${rowHtml}</tr>`;
+            });
+
+            target.innerHTML = `
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs md:text-sm border-collapse">
+                        <thead><tr class="bg-slate-900 text-white font-bold uppercase tracking-wider">${headerCols}</tr></thead>
+                        <tbody class="divide-y divide-slate-100 font-medium text-slate-700">${bodyRows}</tbody>
+                    </table>
+                </div>`;
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
