@@ -3,7 +3,7 @@
 // ==========================================
 
 const GLOBAL_CONFIG = {
-    googleFormUrl: "YOUR_GOOGLE_FORM_URL_HERE",
+    googleFormUrl: "https://forms.gle/jt9SppatJXQ7JXwq6",
     whatsappNumber: "919607910411",
     hotlineDisplay: "+91 9607910411",
     copyrightYear: "2026"
